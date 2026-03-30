@@ -7,5 +7,5 @@ you can participate to the updates of the game to make it perfect.
 
 ## to update : 
 
--bloc select animation (the actual one is not the pre classic one)
--optimization by not displaying nearby blocs
+- bloc select animation (the actual one is not the pre classic one)
+- optimization by not displaying nearby blocs
