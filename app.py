@@ -79,8 +79,8 @@ class Level:
     def __init__(self, w, d, h):
         self.w, self.d, self.h = w, d, h
         self.blocks = np.zeros((w, d, h), dtype=np.uint8)
-        self.blocks[:, 0:30, :] = 1 # Pierre
-        self.blocks[:, 30:32, :] = 2 # Terre
+        self.blocks[:, 0:30, :] = 1 # Stone
+        self.blocks[:, 30:32, :] = 2 # Dirt
 
     def get_tile(self, x, y, z):
         if 0 <= x < self.w and 0 <= y < self.d and 0 <= z < self.h:
@@ -124,7 +124,7 @@ class Player:
     def move(self, xa, ya, za):
         yO = ya
         cubes = []
-        # Optimisation : récupère les cubes proches
+        # Optimisation : get the nearby blocs
         for ix in range(int(self.bb.x0-1), int(self.bb.x1+2)):
             for iy in range(int(self.bb.y0-1), int(self.bb.y1+2)):
                 for iz in range(int(self.bb.z0-1), int(self.bb.z1+2)):
@@ -256,7 +256,7 @@ class RubyDung:
             glBindTexture(GL_TEXTURE_2D, self.tex)
             glCallList(self.list)
             
-            # Dessin sélection (Contour noir Pre-classic)
+            # contour bloc
             t, _ = self.get_ray()
             if t:
                 glDisable(GL_TEXTURE_2D); glLineWidth(2); glColor3f(0,0,0)
